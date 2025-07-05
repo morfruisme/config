@@ -13,6 +13,7 @@
     userName = "fruit";
     userEmail = "nico.travert@gmail.com";
   };
+  programs.git-credential-oauth.enable = true;
 
   programs.helix = {
     enable = true;
