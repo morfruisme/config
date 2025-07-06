@@ -4,9 +4,15 @@
   programs.zsh.enable = true;
 
   programs.starship = {
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
-    settings = {};
+
+    settings = {
+      character = {
+        success_symbol = " >(white)";
+        error_symbol = " >(white)";
+      };
+    };
   };
 
   programs.helix = {
