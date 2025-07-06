@@ -30,8 +30,11 @@
     app2unit
     aubio
     bibata-cursors
+    bun
     caelestia-cli
     cava
+    clang-tools
+    glsl_analyzer
     grim
     inotify-tools
     libqalculate
@@ -41,6 +44,12 @@
     nil
     qt6.qtdeclarative
     quickshell
+    rust-analyzer
     swappy
+    typescript-language-server
+
+    python3.withPackages (pkgs: with pkgs; [
+      python-lsp-server
+    ])
   ];
 }

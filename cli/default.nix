@@ -14,6 +14,12 @@
   
     languages.language-server = {
       nil.command = "nil";
+      c.command = "clangd";
+      rust.command = "rust-analyzer";
+      python.command = "pylsp";
+      javascript.command = "typescript-language-server";
+      typescript.command = "typescript-language-server";
+      glsl.command = "glsl_analyzer";
       qmlls = {
         command = "qmlls";
         args = lib.foldl
