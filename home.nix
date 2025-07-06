@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  home.username = "fruit";
+  home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
   
   home.stateVersion = "25.05";
@@ -15,30 +15,39 @@
   };
   programs.git-credential-oauth.enable = true;
 
+  
   programs.helix = {
     enable = true;
+    
     settings.editor.cursor-shape = {
       normal = "block";
       insert = "bar";
       select = "underline";
     };
+    
     languages.language-server = {
       nil.command = "nil";
       qmlls = {
         command = "qmlls";
-        args =
-          lib.foldl (acc: pkg: acc ++ [ "-I" "${pkg}/lib/qt-6/qml" ])
+        args = lib.foldl
+          (acc: pkg: acc ++ [ "-I" "${pkg}/lib/qt-6/qml" ])
           []
           (with pkgs; [ qt6.qtdeclarative quickshell ]);
+        };
       };
-    };
   };
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    profiles.default.search.default = "ddg";
+  };
+  
   programs.fish.enable = true;
   programs.kitty.enable = true;
   programs.vesktop.enable = true;
   programs.yazi.enable = true;
+
+  # wayland.windowManager.hyprland.enable = true;
 
   qt.enable = true;
   qt.style.name = "adwaita";
