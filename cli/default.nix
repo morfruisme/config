@@ -6,6 +6,7 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    settings = {};
   };
 
   programs.helix = {
