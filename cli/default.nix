@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 
 {
+  home.file.".config/starship/startship.toml".source = ./starship.toml;
+
   programs.helix = {
     enable = true;
   

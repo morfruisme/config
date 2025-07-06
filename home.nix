@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 { 
-  imports = [ ./editor ./hyprland ];
+  imports = [ ./cli ./hyprland ];
 
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
