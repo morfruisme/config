@@ -1,6 +1,13 @@
 { lib, pkgs, ... }:
 
 {
+  _file = ./home.nix;  # Print this file's location
+  imports = [
+    (lib.warn "Importing helix.nix from: ${toString ./helix.nix}" ./helix.nix)
+  ];
+  
+  # imports = [ (import ./helix.nix) ];
+
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
   
@@ -14,28 +21,6 @@
     userEmail = "nico.travert@gmail.com";
   };
   programs.git-credential-oauth.enable = true;
-
-  
-  programs.helix = {
-    enable = true;
-    
-    settings.editor.cursor-shape = {
-      normal = "block";
-      insert = "bar";
-      select = "underline";
-    };
-    
-    languages.language-server = {
-      nil.command = "nil";
-      qmlls = {
-        command = "qmlls";
-        args = lib.foldl
-          (acc: pkg: acc ++ [ "-I" "${pkg}/lib/qt-6/qml" ])
-          []
-          (with pkgs; [ qt6.qtdeclarative quickshell ]);
-        };
-      };
-  };
 
   programs.firefox = {
     enable = true;
