@@ -1,12 +1,7 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
-{
-  _file = ./home.nix;  # Print this file's location
-  imports = [
-    (lib.warn "Importing helix.nix from: ${toString ./helix.nix}" ./helix.nix)
-  ];
-  
-  # imports = [ (import ./helix.nix) ];
+{ 
+  imports = [ ./helix.nix ./hyprland.nix ];
 
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
