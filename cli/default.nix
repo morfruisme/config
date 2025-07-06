@@ -3,18 +3,6 @@
 {
   programs.zsh.enable = true;
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-
-    settings = {
-      character = {
-        success_symbol = " >(white)";
-        error_symbol = " >(white)";
-      };
-    };
-  };
-
   programs.helix = {
     enable = true;
   
