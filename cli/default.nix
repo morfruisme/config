@@ -4,7 +4,7 @@
   programs.zsh.enable = true;
 
   programs.starship = {
-    enable = false;
+    enable = true;
     enableZshIntegration = true;
 
     settings = {
