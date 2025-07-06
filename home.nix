@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 { 
-  imports = [ ./helix.nix ./hyprland.nix ];
+  imports = [ ./editor ./hyprland ];
 
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
@@ -26,8 +26,6 @@
   programs.kitty.enable = true;
   programs.vesktop.enable = true;
   programs.yazi.enable = true;
-
-  # wayland.windowManager.hyprland.enable = true;
 
   qt.enable = true;
   qt.style.name = "adwaita";
