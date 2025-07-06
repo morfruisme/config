@@ -17,11 +17,7 @@
   };
   programs.git-credential-oauth.enable = true;
 
-  programs.firefox = {
-    enable = true;
-    profiles.default.search.default = "ddg";
-  };
-  
+  programs.firefox.enable = true;  
   programs.fish.enable = true;
   programs.kitty.enable = true;
   programs.vesktop.enable = true;
