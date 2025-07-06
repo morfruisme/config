@@ -68,6 +68,7 @@
     brightnessctl
     ddcutil
     lm_sensors
+    starship
   ];
  
   # Users
