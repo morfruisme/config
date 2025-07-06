@@ -1,8 +1,6 @@
 { lib, pkgs, ... }:
 
 {
-  home.file.".config/starship/startship.toml".source = ./starship.toml;
-
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
