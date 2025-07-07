@@ -64,11 +64,16 @@
   hardware.i2c.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wget curl
     brightnessctl
+    curl
     ddcutil
     lm_sensors
+    wget
   ];
+
+  environment.sessionVariables = {
+    XDG_SESSION_DESKTOP = "hyprland";
+  };
  
   # Users
   users.users.fruit = {

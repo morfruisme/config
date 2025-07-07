@@ -35,6 +35,7 @@
     cava
     clang-tools
     glsl_analyzer
+    gnumake
     grim
     inotify-tools
     libqalculate
@@ -48,8 +49,8 @@
     swappy
     typescript-language-server
 
-    python3.withPackages (pkgs: with pkgs; [
+    (python3.withPackages (pkgs: with pkgs; [
       python-lsp-server
-    ])
+    ]))
   ];
 }
