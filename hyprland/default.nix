@@ -21,7 +21,8 @@
         "XCURSOR_THEME, Bibata-Original-Classic"
       ];
 
-      # exec-once = "qs -n -c caelestia";
+      # Quickshell shell
+      exec-once = "qs -n -c caelestia";
 
       "$terminal" = "kitty";
       "$browser" = "firefox";
