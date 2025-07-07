@@ -14,24 +14,34 @@
   };  
   
   outputs = { nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.pouler = nixpkgs.lib.nixosSystem {
-      system = "86_64-linux";
-      modules = [
-        { # Packages that don't follow nixpkgs version (override the ones that do)
-          nixpkgs.overlays = [ (self: super:
-            nixpkgs.lib.mapAttrs (_: pkg: pkg.packages.${super.system}.default)
-            (with inputs; { inherit quickshell; inherit caelestia-cli; })
-          ) ];
-        }
-        ./configuration.nix
-        home-manager.nixosModules.home-manager {
-          home-manager = {
-	          useGlobalPkgs = true;
-            useUserPackages = true;
-	          users.fruit = import ./home.nix;
-          };
-        }
-      ];
+    nixosConfigurations =
+    
+    let modules = [
+      { # Packages that don't follow nixpkgs version (override the ones that do)
+        nixpkgs.overlays = [ (self: super:
+          nixpkgs.lib.mapAttrs (_: pkg: pkg.packages.${super.system}.default)
+          (with inputs; { inherit quickshell; inherit caelestia-cli; })
+        ) ];
+      }
+      ./configuration.nix
+      home-manager.nixosModules.home-manager {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.fruit = import ./home.nix;
+        };
+      }
+    ]; in {
+      
+      germaine = nixpkgs.lib.nixosSystem {
+        system = "86_64-linux";
+        modules = modules ++ [ ./germaine ];
+      };
+
+      madeleine = nixpkgs.lib.nixosSystem {
+        system = "86_64-linux";
+        modules = modules ++ [ ./madeleine ];
+      };
     };
   };
 }
