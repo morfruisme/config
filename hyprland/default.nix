@@ -85,8 +85,8 @@
       lib.imap1 (i: key: "$mod SHIFT, ${key}, movetoworkspace, ${toString i}") keys);
 
       bindm = [
-        "$mod, mouse:272, moveWindow"
-        "$mod, mouse:273, resizeWindow"
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
 
       bindel = [

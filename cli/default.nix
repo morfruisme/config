@@ -3,8 +3,11 @@
 {
   programs.zsh.enable = true;
 
+  programs.neovim.enable = true;
+
   programs.helix = {
     enable = true;
+    defaultEditor = true;
   
     settings.editor.cursor-shape = {
       normal = "block";
