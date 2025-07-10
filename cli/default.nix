@@ -2,9 +2,7 @@
 
 {
   programs.zsh.enable = true;
-
-  programs.neovim.enable = true;
-
+  
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -14,6 +12,8 @@
       insert = "bar";
       select = "underline";
     };
+
+    settings.theme = "papercolor-light";
   
     languages.language-server = {
       nil.command = "nil";
@@ -22,6 +22,7 @@
       python.command = "pylsp";
       javascript.command = "typescript-language-server";
       typescript.command = "typescript-language-server";
+      css.command = "vscode-css-languageserver";
       glsl.command = "glsl_analyzer";
       qmlls = {
         command = "qmlls";

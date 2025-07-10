@@ -34,6 +34,7 @@
     caelestia-cli
     cava
     clang-tools
+    vscode-css-languageserver
     glsl_analyzer
     gnumake
     grim
