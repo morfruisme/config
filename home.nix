@@ -38,6 +38,7 @@
     glsl_analyzer
     gnumake
     grim
+    inkscape
     inotify-tools
     libqalculate
     material-symbols
@@ -48,6 +49,7 @@
     quickshell
     rust-analyzer
     swappy
+    typescript
     typescript-language-server
 
     (python3.withPackages (pkgs: with pkgs; [

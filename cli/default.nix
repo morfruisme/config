@@ -7,10 +7,15 @@
     enable = true;
     defaultEditor = true;
   
-    settings.editor.cursor-shape = {
-      normal = "block";
-      insert = "bar";
-      select = "underline";
+    settings.editor = {
+      line-number = "relative";
+      auto-format = false;
+
+      cursor-shape = {
+        normal = "block";
+        insert = "bar";
+        select = "underline";
+      };
     };
 
     settings.theme = "papercolor-light";

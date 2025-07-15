@@ -55,6 +55,7 @@
         ", B, exec, $browser"
         ", E, exec, $file_explorer"
         ", M, global, caelestia:launcher"
+        ", L, global, caelestia:lock"
 
         " SHIFT, Q, exit"
         ", Q, killactive"
@@ -99,10 +100,9 @@
       ];
 
       bindl = [
-        ", XF86AudioNext,  exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay,  exec, playerctl play-pause"
-        ", XF86AudioPrev,  exec, playerctl previous"
+        ", XF86AudioNext,  global, caelestia:mediaNext"
+        ", XF86AudioPause, global, caelestia:mediaToggle"
+        ", XF86AudioPrev,  global, caelestia:mediaPrev"
       ];
 
 
