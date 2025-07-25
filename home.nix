@@ -19,7 +19,6 @@
 
   programs.firefox.enable = true;  
   programs.fish.enable = true;
-  programs.kitty.enable = true;
   programs.vesktop.enable = true;
   programs.yazi.enable = true;
 
