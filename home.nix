@@ -20,7 +20,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    profiles.default.extensions = with pkgs; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       jdinhlife.gruvbox
       rust-lang.rust-analyzer
