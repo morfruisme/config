@@ -24,7 +24,7 @@
       vscodevim.vim
       jdinhlife.gruvbox
       rust-lang.rust-analyzer
-      ms-vscode.cpptools
+      llvm-vs-code-extensions.vscode-clangd
       haskell.haskell
     ];
   };
