@@ -8,6 +8,7 @@
     settings = {
       "map ctrl+shift+enter" = "new_window_with_cwd";
     };
+    themeFile = "Hybrid";
   };
 
   programs.zsh.enable = true;

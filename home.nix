@@ -17,6 +17,18 @@
   };
   programs.git-credential-oauth.enable = true;
 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    profiles.default.extensions = with pkgs; [
+      vscodevim.vim
+      jdinhlife.gruvbox
+      rust-lang.rust-analyzer
+      ms-vscode.cpptools
+      haskell.haskell
+    ];
+  };
+
   programs.firefox.enable = true;  
   programs.fish.enable = true;
   programs.vesktop.enable = true;
@@ -50,6 +62,7 @@
     swappy
     typescript
     typescript-language-server
+    vlc
 
     (python3.withPackages (pkgs: with pkgs; [
       python-lsp-server

@@ -12,7 +12,7 @@
     efi.canTouchEfiVariables = true;
     grub = {
       enable = true;
-      device = "nodev";
+      devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
     };
@@ -41,4 +41,6 @@
 
   # Sensor
   hardware.i2c.enable = true;
+
+  programs.adb.enable = true;
 }
