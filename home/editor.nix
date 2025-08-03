@@ -1,18 +1,6 @@
 { lib, pkgs, ... }:
 
-{
-  programs.kitty = {  
-    enable = true;
-    enableGitIntegration = true;
-    shellIntegration.enableZshIntegration = true;
-    settings = {
-      "map ctrl+shift+enter" = "new_window_with_cwd";
-    };
-    themeFile = "Hybrid";
-  };
-
-  programs.zsh.enable = true;
-  
+{  
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -47,5 +35,17 @@
           (with pkgs; [ qt6.qtdeclarative quickshell ]);
         };
       };
+  };
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim
+      jdinhlife.gruvbox
+      rust-lang.rust-analyzer
+      llvm-vs-code-extensions.vscode-clangd
+      haskell.haskell
+    ];
   };
 }

@@ -28,7 +28,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.fruit = import ./home.nix;
+          users.fruit = import ./home/default.nix;
         };
       }
     ]; in {

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 { 
-  imports = [ ./cli ./hyprland ];
+  imports = [ ./hyprland.nix ./cli.nix ./editor.nix ];
 
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
@@ -17,20 +17,7 @@
   };
   programs.git-credential-oauth.enable = true;
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      vscodevim.vim
-      jdinhlife.gruvbox
-      rust-lang.rust-analyzer
-      llvm-vs-code-extensions.vscode-clangd
-      haskell.haskell
-    ];
-  };
-
   programs.firefox.enable = true;  
-  programs.fish.enable = true;
   programs.vesktop.enable = true;
   programs.yazi.enable = true;
 
