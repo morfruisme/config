@@ -1,0 +1,37 @@
+{ pkgs, ... }:
+
+{
+  imports = [ ../configuration.nix ./hardware-configuration.nix ];
+
+  networking.hostName = "germaine";
+  system.stateVersion = "25.05";
+
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
+  # Sensor
+  # hardware.i2c.enable = true;
+
+  # Touchpad
+  services.libinput.enable = true;
+
+  # Power management
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
+
+  programs.adb.enable = true;
+  programs.hyprland.enable = true;
+  
+  environment.sessionVariables = {
+    XDG_SESSION_DESKTOP = "hyprland";
+  };
+  
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+    ddcutil
+    lm_sensors
+  ];
+ }

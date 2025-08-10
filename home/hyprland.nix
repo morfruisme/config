@@ -3,31 +3,19 @@
 {
   services.hyprsunset.enable = true;
 
-  # Source config file (not used)
-  # home.file.hyprland = {
-  #   target = ".config/hypr/hyprland.conf";
-  #   source = ./hyprland.conf;
-  # };
-
   wayland.windowManager.hyprland = {
     enable = true;
     
     settings = {
     
-      monitor = "eDP-1, 1920x1080, 0x0, 1";
-
       env = [
         "XCURSOR_SIZE, 24"
         "XCURSOR_THEME, Bibata-Original-Classic"
       ];
 
-      # Quickshell shell
-      exec-once = "qs -n -c caelestia";
-
       "$terminal" = "kitty";
       "$browser" = "firefox";
       "$file_explorer" = "nautilus";
-
 
 
 
@@ -39,11 +27,7 @@
         repeat_delay = 300;
         follow_mouse = 1;
         sensitivity = 0;
-        touchpad.natural_scroll = true;
       };
-
-      gestures.workspace_swipe = true;
-
 
 
 
@@ -54,9 +38,7 @@
         ", T, exec, $terminal"
         ", B, exec, $browser"
         ", E, exec, $file_explorer"
-        ", M, global, caelestia:launcher"
-        ", L, global, caelestia:lock"
-
+        
         " SHIFT, Q, exit"
         ", Q, killactive"
         ", W, togglefloating"
@@ -99,13 +81,6 @@
         ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
       ];
 
-      bindl = [
-        ", XF86AudioNext,  global, caelestia:mediaNext"
-        ", XF86AudioPause, global, caelestia:mediaToggle"
-        ", XF86AudioPrev,  global, caelestia:mediaPrev"
-      ];
-
-
 
 
       # WINDOW RULES
@@ -119,8 +94,7 @@
       ];
 
 
-
-    
+ 
       # UI
 
       general = {

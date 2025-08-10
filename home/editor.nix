@@ -7,7 +7,12 @@
   
     settings.editor = {
       line-number = "relative";
-      auto-format = false;
+      auto-format = true;
+
+      soft-wrap = {
+        enable = true;
+        wrap-indicator = "";
+      };
 
       cursor-shape = {
         normal = "block";
