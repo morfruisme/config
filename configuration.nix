@@ -2,7 +2,6 @@
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -44,7 +43,10 @@
     histFile = "$HOME/.zsh_history";
   };
 
-  programs.vim.enable = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
  
   # Users
   users.users.fruit = {

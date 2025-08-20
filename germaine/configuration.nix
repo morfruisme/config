@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ../configuration.nix ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "germaine";
   system.stateVersion = "25.05";
@@ -11,9 +11,6 @@
     enable = true;
     powerOnBoot = false;
   };
-
-  # Sensor
-  # hardware.i2c.enable = true;
 
   # Touchpad
   services.libinput.enable = true;
@@ -31,7 +28,6 @@
   
   environment.systemPackages = with pkgs; [
     brightnessctl
-    ddcutil
     lm_sensors
   ];
  }

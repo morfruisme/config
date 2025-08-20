@@ -16,16 +16,22 @@
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations =
     
-    let system = username: nixpkgs.lib.nixosSystem {
+    let config = username: nixpkgs.lib.nixosSystem {
       system = "86_64-linux";
       modules = [
-        { # Packages that don't follow nixpkgs version (override the ones that do)
-          nixpkgs.overlays = [ (self: super:
+        ./configuration.nix
+        ./${username}/configuration.nix
+
+        {
+          nixpkgs.config.allowUnfree = true;
+          
+          # Packages that don't follow nixpkgs version (override the ones that do)
+          nixpkgs.overlays = [ (_: super:
             nixpkgs.lib.mapAttrs (_: pkg: pkg.packages.${super.system}.default)
             (with inputs; { inherit quickshell; inherit caelestia-cli; })
           ) ];
         }
-        ./${username}/configuration.nix
+
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
@@ -37,8 +43,8 @@
     }; in
 
     {
-      germaine = system "germaine";
-      madeleine = system "madeleine";
+      germaine = config "germaine";
+      madeleine = config "madeleine";
     };
   };
 }
