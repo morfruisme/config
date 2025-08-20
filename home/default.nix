@@ -29,6 +29,7 @@
     bun
     clang-tools
     curl
+    ddcui
     glsl_analyzer
     gnumake
     inkscape
