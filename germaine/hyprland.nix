@@ -11,8 +11,8 @@
     gestures.workspace_swipe = true;
 
     bind = [
-      ", M, global, caelestia:launcher"
-      ", L, global, caelestia:lock"
+      "$mod, M, global, caelestia:launcher"
+      "$mod, L, global, caelestia:lock"
     ];
 
     bindl = [

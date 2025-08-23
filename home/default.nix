@@ -44,8 +44,10 @@
     rust-analyzer
     typescript
     typescript-language-server
+    unzip
     vlc
     vscode-css-languageserver
+    zip
 
     (python3.withPackages (pkgs: with pkgs; [
       numpy
