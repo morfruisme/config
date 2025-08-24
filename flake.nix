@@ -9,8 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    quickshell.url = "github:quickshell-mirror/quickshell";
-    caelestia-cli.url = "github:alisonjenkins/cli";
+    caelestia = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };  
   
   outputs = { nixpkgs, home-manager, ... }@inputs: {
@@ -22,20 +24,21 @@
         ./configuration.nix
         ./${username}/configuration.nix
 
-        {
-          nixpkgs.config.allowUnfree = true;
-          
-          # Packages that don't follow nixpkgs version (override the ones that do)
-          nixpkgs.overlays = [ (_: super:
-            nixpkgs.lib.mapAttrs (_: pkg: pkg.packages.${super.system}.default)
-            (with inputs; { inherit quickshell; inherit caelestia-cli; })
-          ) ];
-        }
+        # {          
+        #   # Packages that don't follow nixpkgs version (override the ones that do)
+        #   nixpkgs.overlays = [ (_: super:
+        #     nixpkgs.lib.mapAttrs (_: pkg: pkg.packages.${super.system}.default)
+        #     (with inputs; { inherit quickshell; inherit caelestia-cli; })
+        #   ) ];
+        # }
 
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+            sharedModules = [
+              inputs.caelestia.homeManagerModules.default
+            ];
             users.fruit = import ./${username}/home.nix;
           };
         }

@@ -2,13 +2,23 @@
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Paris";
+  time.hardwareClockInLocalTime = true;
+  
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocales = [ "fr_FR.UTF-8/UTF-8" ];
+  i18n.extraLocaleSettings = {
+    LC_TIME = "fr_FR.UTF-8";
+  };
+
   console = {
     keyMap = "fr";
     font = "Lat2-Terminus16";
   };
+  
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # EFI boot
   boot.loader = {
@@ -21,7 +31,6 @@
       useOSProber = true;
     };
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Internet
   networking.networkmanager.enable = true;
@@ -49,10 +58,10 @@
   };
  
   # Users
+  users.defaultUserShell = pkgs.zsh;
+  
   users.users.fruit = {
     isNormalUser = true;
-    linger = true;
     extraGroups = [ "wheel" "networkmanager" ];
-    shell = pkgs.zsh;
   };
 }

@@ -5,14 +5,12 @@
   
   home.stateVersion = "25.05";
 
+  programs.caelestia = {
+    enable = true;
+    cli.enable = true;
+  };
+
   home.packages = with pkgs; [
-    app2unit
-    aubio
-    caelestia-cli
-    cava
-    grim
-    libqalculate
     stremio
-    swappy
   ];
 } 

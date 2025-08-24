@@ -44,7 +44,6 @@
     rust-analyzer
     typescript
     typescript-language-server
-    unzip
     vlc
     vscode-css-languageserver
     zip
