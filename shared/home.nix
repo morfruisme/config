@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{ 
+{
+  imports = [ ./cli.nix ./editor.nix ./hyprland.nix ];
+  
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
 
