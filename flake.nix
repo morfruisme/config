@@ -21,7 +21,7 @@
     let makeHost = name: nixpkgs.lib.nixosSystem {
       system = "86_64-linux";
       modules = [
-        ./shared/configuration.nix
+        ./configuration.nix
         ./hosts/${name}/configuration.nix
 
         home-manager.nixosModules.home-manager {

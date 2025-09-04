@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  imports = [ ../../shared/home.nix ./hyprland.nix ];
+  imports = [ ../../home ./hyprland.nix ];
   
   home.stateVersion = "25.05";
 } 
