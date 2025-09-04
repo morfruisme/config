@@ -1,5 +1,5 @@
 {
-  description = "Root";
+  description = "NixOS config";
   
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -18,19 +18,11 @@
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations =
     
-    let config = username: nixpkgs.lib.nixosSystem {
+    let makeHost = name: nixpkgs.lib.nixosSystem {
       system = "86_64-linux";
       modules = [
-        ./configuration.nix
-        ./${username}/configuration.nix
-
-        # {          
-        #   # Packages that don't follow nixpkgs version (override the ones that do)
-        #   nixpkgs.overlays = [ (_: super:
-        #     nixpkgs.lib.mapAttrs (_: pkg: pkg.packages.${super.system}.default)
-        #     (with inputs; { inherit quickshell; inherit caelestia-cli; })
-        #   ) ];
-        # }
+        ./shared/configuration.nix
+        ./hosts/${name}/configuration.nix
 
         home-manager.nixosModules.home-manager {
           home-manager = {
@@ -39,15 +31,15 @@
             sharedModules = [
               inputs.caelestia.homeManagerModules.default
             ];
-            users.fruit = import ./${username}/home.nix;
+            users.fruit = import ./shared/home.nix // import ./hosts/${name}/home.nix;
           };
         }
       ];
     }; in
 
     {
-      germaine = config "germaine";
-      madeleine = config "madeleine";
+      germaine = makeHost "germaine";
+      madeleine = makeHost "madeleine";
     };
   };
 }
