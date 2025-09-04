@@ -21,7 +21,7 @@
     let makeHost = name: nixpkgs.lib.nixosSystem {
       system = "86_64-linux";
       modules = [
-        ./shared/configuration.nix
+        ./configuration.nix
         ./hosts/${name}/configuration.nix
 
         home-manager.nixosModules.home-manager {
@@ -31,7 +31,7 @@
             sharedModules = [
               inputs.caelestia.homeManagerModules.default
             ];
-            users.fruit = import ./shared/home.nix // import ./hosts/${name}/home.nix;
+            users.fruit = import ../hosts/${name}/home.nix;
           };
         }
       ];
