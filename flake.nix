@@ -22,7 +22,7 @@
       system = "86_64-linux";
       modules = [
         ./shared/configuration.nix
-        ./hosts/${name}/configuration.nix
+        ./${name}/configuration.nix
 
         home-manager.nixosModules.home-manager {
           home-manager = {
@@ -31,7 +31,7 @@
             sharedModules = [
               inputs.caelestia.homeManagerModules.default
             ];
-            users.fruit = import ./hosts/${name}/home.nix;
+            users.fruit = { imports = [ ./shared/home.nix ./${name}/home.nix ]; };
           };
         }
       ];

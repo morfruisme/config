@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ../../shared/home.nix ./hyprland.nix ];
+  imports = [ ./hyprland.nix ];
   
   home.stateVersion = "25.05";
 
@@ -11,7 +11,7 @@
   };
 
   home.packages = with pkgs; [
-    libreoffice-bin
+    # libreoffice
     stremio
     woeusb
   ];
