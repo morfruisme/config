@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ../shared/home.nix ./hardware-configuration.nix ];
+  imports = [ ../../shared/home.nix ./hardware-configuration.nix ];
 
   networking.hostName = "germaine";
   system.stateVersion = "25.05";
