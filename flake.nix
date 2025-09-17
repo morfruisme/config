@@ -40,6 +40,15 @@
     {
       germaine = makeHost "germaine";
       madeleine = makeHost "madeleine";
+
+      # no home manager
+      march = nixpkgs.lib.nixosSystem {
+        system = "86_64-linux";
+        modules = [
+          ./shared/configuration.nix
+          ./march/configuration.nix
+        ];
+      };
     };
   };
 }

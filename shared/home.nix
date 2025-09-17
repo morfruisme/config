@@ -23,35 +23,38 @@
     enableZshIntegration = true;
   };
 
-  home.packages = with pkgs; [
-    aseprite
-    bibata-cursors
-    bun
-    clang-tools
-    curl
-    ddcui
-    glsl_analyzer
-    gnumake
-    inkscape
-    inotify-tools
-    material-symbols
-    nautilus
-    nerd-fonts.jetbrains-mono
-    nil
-    qbittorrent
-    qt6.qtdeclarative
-    quickshell
-    rust-analyzer
-    typescript
-    typescript-language-server
-    vlc
-    vscode-css-languageserver
-    zip
-
-    (python3.withPackages (pkgs: with pkgs; [
-      numpy
-      pillow
-      python-lsp-server
-    ]))
-  ];
+  home.packages =
+    with pkgs;
+    let default = [
+      bibata-cursors
+      curl
+      ddcui
+      inotify-tools
+      material-symbols
+      nautilus
+      nerd-fonts.jetbrains-mono
+      quickshell
+      unzip
+      vlc
+      zip
+    ];
+    dev = [
+      bun
+      clang-tools
+      gcc
+      glsl_analyzer
+      gnumake
+      nil
+      qt6.qtdeclarative
+      rust-analyzer
+      typescript
+      typescript-language-server
+      vscode-css-languageserver
+      (python3.withPackages (pkgs: with pkgs; [
+        numpy
+        pillow
+        python-lsp-server
+      ]))
+     ];
+     in default ++ dev;
 }
