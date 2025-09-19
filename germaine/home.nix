@@ -8,19 +8,19 @@
     cli.enable = true;
   };
 
-  programs.qutebrowser.enable = true;
+  # programs.qutebrowser.enable = true;
   
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    aseprite
-    bottles
-    godot
+    # aseprite
+    # bottles
+    # godot
     inkscape
     libreoffice
-    qbittorrent
-    stremio
+    # qbittorrent
+    # stremio
     virtualbox
-    woeusb
+    # woeusb
   ];
 } 
