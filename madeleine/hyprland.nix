@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  imports = [ ../shared/hyprland.nix ];
+
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "desc:Philips Consumer Electronics Company PHL 271E1 0x0000089F, 1920x1080, 0x0, 1"

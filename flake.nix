@@ -31,7 +31,12 @@
             sharedModules = [
               inputs.caelestia.homeManagerModules.default
             ];
-            users.fruit = { imports = [ ./shared/home.nix ./${name}/home.nix ]; };
+            users.fruit = {
+              imports = [
+                ./shared/home.nix
+                ./${name}/home.nix
+              ];
+            };
           };
         }
       ];

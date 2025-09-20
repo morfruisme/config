@@ -12,16 +12,16 @@
   };
 
   services.libinput.enable = true;
-  
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
   programs.adb.enable = true;
-  programs.hyprland.enable = true;
-  
-  environment.sessionVariables = {
-    XDG_SESSION_DESKTOP = "hyprland";
-  };
+  programs.niri.enable = true;
+
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+  ];
   
   environment.systemPackages = with pkgs; [
     brightnessctl
