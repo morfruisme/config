@@ -1,17 +1,11 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hyprland.nix ];
-
-  programs.caelestia = {
-    enable = true;
-    cli.enable = true;
-  };
+  imports = [];
+  home.stateVersion = "25.05";
 
   # programs.qutebrowser.enable = true;
   
-  home.stateVersion = "25.05";
-
   home.packages = with pkgs; [
     # aseprite
     # bottles

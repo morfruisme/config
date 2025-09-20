@@ -4,6 +4,19 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.loader = {
+    systemd-boot.enable = false;
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
+
   time.timeZone = "Europe/Paris";
   time.hardwareClockInLocalTime = false;
   
@@ -18,31 +31,14 @@
     font = "Lat2-Terminus16";
   };
   
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # EFI boot
-  boot.loader = {
-    systemd-boot.enable = false;
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-    };
-  };
-
-  # Internet
   networking.networkmanager.enable = true;
 
-  # Sound
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
 
-  # Shell
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -57,11 +53,10 @@
     defaultEditor = true;
   };
  
-  # Users
-  users.defaultUserShell = pkgs.zsh;
-  
   users.users.fruit = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
   };
+
+  users.defaultUserShell = pkgs.zsh;  
 }

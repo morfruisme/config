@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./cli.nix ./editor.nix ./hyprland.nix ];
+  imports = [ ./cli.nix ./editor.nix ];
   
   home.username = "fruit"; # c'est moi 🦋
   home.homeDirectory = "/home/fruit";
@@ -23,8 +23,6 @@
     enableZshIntegration = true;
   };
 
-  # home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
-  
   home.packages =
     with pkgs;
     let default = [
