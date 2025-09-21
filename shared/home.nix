@@ -28,12 +28,10 @@
     let default = [
       bibata-cursors
       curl
-      ddcui
       inotify-tools
       material-symbols
       nautilus
       nerd-fonts.jetbrains-mono
-      quickshell
       unzip
       vlc
       zip

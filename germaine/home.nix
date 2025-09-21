@@ -7,14 +7,16 @@
   # programs.qutebrowser.enable = true;
   
   home.packages = with pkgs; [
-    # aseprite
+    aseprite
     # bottles
-    # godot
+    godot
     inkscape
     libreoffice
-    # qbittorrent
+    qbittorrent
     # stremio
+    swaybg
     virtualbox
+    waybar
     # woeusb
   ];
 } 
