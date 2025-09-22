@@ -5,6 +5,7 @@
   home.stateVersion = "25.05";
 
   # programs.qutebrowser.enable = true;
+  programs.waybar.enable = true;
   
   home.packages = with pkgs; [
     aseprite
@@ -16,7 +17,6 @@
     # stremio
     swaybg
     virtualbox
-    waybar
     # woeusb
   ];
 } 
