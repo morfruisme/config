@@ -14,6 +14,7 @@
   services.libinput.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+  services.flatpak.enable = true;
 
   programs.adb.enable = true;
   programs.niri.enable = true;
@@ -26,5 +27,6 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     lm_sensors
+    xwayland-satellite
   ];
  }

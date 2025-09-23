@@ -6,6 +6,12 @@
 
   # programs.qutebrowser.enable = true;
   programs.waybar.enable = true;
+  programs.bat.enable = true;
+
+  programs.rofi = {
+    enable = true;
+    theme = "dmenu";
+  };
   
   home.packages = with pkgs; [
     aseprite
