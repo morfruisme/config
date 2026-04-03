@@ -20,8 +20,6 @@
     usbmon.enable = false;
   };
 
-  programs.adb.enable = true;
-  
   programs.zsh = {
     enable = true;
     enableCompletion = true;

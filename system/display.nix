@@ -4,8 +4,8 @@
   services.displayManager.lemurs.enable = true;
   security.pam.services.swaylock = {};
 
+  hardware.acpilight.enable = true;
   programs.niri.enable = true;
-  programs.light.enable = true;
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-gtk

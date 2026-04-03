@@ -14,8 +14,8 @@
   
   programs.git = {
     enable = true;
-    userName = "fruit";
-    userEmail = "nico.travert@gmail.com";
+    settings.user.name = "fruit";
+    settings.user.email = "nico.travert@gmail.com";
   };
   programs.git-credential-oauth.enable = true;
 
@@ -53,6 +53,7 @@
     let default = [
       bibata-cursors
       curl
+      gammastep
       inotify-tools
       nautilus
       nerd-fonts.dejavu-sans-mono
@@ -63,14 +64,13 @@
       zip
     ];
     programs = [
-      aseprite
-      gfn-electron
       godot
       inkscape
       libreoffice
       nicotine-plus
       pywal
       qbittorrent
+      rusty-path-of-building
       # stremio
       swaybg
       # woeusb
@@ -81,19 +81,24 @@
       gcc
       glsl_analyzer
       gnumake
-      haskell.compiler.ghcHEAD
+      haskell.compiler.native-bignum.ghc9103
       haskell-language-server
       nil
       qt6.qtdeclarative
       rust-analyzer
+      # ty
       typescript
       typescript-language-server
       vscode-css-languageserver
 
       (python3.withPackages (pkgs: with pkgs; [
+          jedi-language-server
           numpy
+          openpyxl
+          pandas
           pillow
           pip
+          pulp
           pyshark
           python-lsp-server
         ]))

@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  # not used yet
+  # not used
   home.file.".config/helix/themes/custom.toml".text = ''
     inherits = "seoul256-light"
     "ui.cursor.insert" = "#000000"
@@ -33,25 +33,6 @@
     };
 
     settings.theme = "seoul256-light";
-  
-    languages.language-server = {
-      nil.command = "nil";
-      c.command = "clangd";
-      rust.command = "rust-analyzer";
-      haskell.command = "haskell-language-server";
-      python.command = "pylsp";
-      javascript.command = "typescript-language-server";
-      typescript.command = "typescript-language-server";
-      css.command = "vscode-css-languageserver";
-      glsl.command = "glsl_analyzer";
-      qmlls = {
-        command = "qmlls";
-        args = lib.foldl
-          (acc: pkg: acc ++ [ "-I" "${pkg}/lib/qt-6/qml" ])
-          []
-          (with pkgs; [ qt6.qtdeclarative quickshell ]);
-        };
-      };
   };
 
   programs.vscode = {
